@@ -1,0 +1,18 @@
+
+<form>
+    Confirm Your Details:
+    <div class="row">
+        
+      <div class="col">
+          <label for="phone">Phone</label>
+        <input #phone name="phone" type="text" class="form-control" value={{customer.phone}}>
+      </div>
+      <div class="col">
+        <label for="address">Address</label>
+        <input #address name="address" type="text" class="form-control" value={{customer.address}}>
+      </div>
+    </div>
+<br/>
+    <button type="button" class="btn btn-primary" (click)="handleSubmit(phone.value,address.value)">Order</button>
+    
+  </form>

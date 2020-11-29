@@ -1,0 +1,65 @@
+<div class="container">
+
+    <p><b> {{orders[0]["customer"]["name"]}} </b> &nbsp;&nbsp;&nbsp;    Phone: <b>{{orders[0]["customer"]["phone"]}}</b></p>
+    <p>Address: <b>{{orders[0]["customer"]["address"]}}</b></p>
+    
+    <!-- <p></p> -->
+
+<div *ngFor="let order of orders">
+    OrderId:<b>{{order["id"]}}</b>
+  <span style="float:right"> Date:<b>{{order["date"]}}</b></span>
+<table class="table" >
+    
+  
+
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <!-- <th scope="col">Quantity</th>
+        <th scope="col">Amount</th> -->
+        <!-- <th></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderContent of order['orderContents']">
+        <th scope="row">{{orderContent["item"]["name"]}}</th>
+        <td>{{orderContent["quantity"]}}</td>
+        <!-- <td>{{orderContent["quantity"]}}</td> -->
+
+        <!-- <td>{{order["supplier_name"]}}</td>
+        <td>{{cartItem["quantity"]}}</td> -->
+        <!-- <button *ngIf="!isAdded" (click)></button> -->
+
+        <!-- <td>{{cartItem["quantity"]}} x {{cartItem["price"]}} = {{cartItem["quantity"]*cartItem["price"]}}</td> -->
+        
+
+      </tr>
+
+      
+      <tr>
+        <th scope="row"></th>
+        <!-- <td></td> -->
+        <!-- <td></td> -->
+
+        <td>Total: {{order["amount"] | number}}₹</td>
+        
+
+        
+      </tr>
+      <!-- OrderId:<b>{{order["id"]}}</b>
+    Date:<b>{{order["date"]}}</b> -->
+
+      <tr>
+        <td></td>
+        <td></td>
+        <!-- <td></td> -->
+        
+      <!-- <td><button type="submit" (click)="orderNow()">Order Now</button></td> -->
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+</div>

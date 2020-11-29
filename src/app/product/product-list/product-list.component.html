@@ -1,0 +1,6 @@
+
+<div class="container">
+    <div class="card-deck" *ngFor="let prod of resultService.result" style="display:inline-block;">
+    <a href="/show/{{prod.id}}"><app-product-card [product]="prod"></app-product-card></a>
+   </div>
+</div>

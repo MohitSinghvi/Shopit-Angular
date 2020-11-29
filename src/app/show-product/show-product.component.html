@@ -1,0 +1,99 @@
+<div class="container">
+    
+    <div class="row">
+      <div class="col-sm-12" align="center"><h1>{{product.name}}</h1></div>
+      <!-- <div class="col-sm-4">col-sm-4</div>ssss -->
+    </div>
+    <div class="row">
+      <div class="col-sm-12" align="center" >
+        <p>{{product.description}}</p>
+
+      </div>
+
+    </div>
+    <div class="row">
+        
+        <div class="col-sm">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <h6>Specifications:</h6>
+                    <!-- <th scope="col">Specifications</th> -->
+                    <!-- <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th> -->
+                  </tr>
+                </thead>
+                
+                <tbody >
+                    <div *ngFor = "let spec of product.specifications | keyvalue">
+                  <tr >
+                    <th scope="row">{{spec.key}}:</th>
+                    <td>{{spec.value}}</td>
+            
+                  </tr>
+                  </div>
+
+                  
+                  
+                </tbody>
+
+
+              </table>
+
+        </div>
+
+
+
+
+
+
+        <div class="col-sm">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <h6>Suppliers:</h6>
+                    <!-- <th scope="col">Specifications</th> -->
+                    <!-- <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th> -->
+                  </tr>
+                </thead>
+                
+                <tbody >
+                  <tr>
+                    <th>Supplier</th>
+                    <th>Price</th>
+                    <!-- <th>Units</th> -->
+                    <th>Qty.</th>
+                  </tr>
+                    
+                  <tr *ngFor = "let supplier of suppliers">
+                    
+                    <th scope="row">{{supplier["name"]}}:</th>
+                    <td>{{supplier["price"] | number}} ₹</td>
+                    <!-- <td>{{supplier["stock"]}}</td> -->
+                    <!-- {{supplier["id"]}} -->
+
+                    <td>
+                    <!-- <input #qty name="qty" placeholder="qty" type="text" style="width:50px"/> -->
+                    <input  #qty name="qty" placeholder="qty" type="number" min="1" max="10" value="1" style="width:50px">
+                  </td>
+                  <td>
+                    <button *ngIf="!isAdded" (click)="addToCart(supplier['id'],qty.value)">Add to Cart</button></td>
+                    
+                  </tr>
+                  
+
+                  
+                  
+                </tbody>
+
+
+              </table>
+
+        </div>
+        
+      </div>
+
+</div>

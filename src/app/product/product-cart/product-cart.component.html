@@ -1,0 +1,51 @@
+<!-- <p>product-cart works!</p>
+{{id}} -->
+
+<h1>My Cart</h1>
+<div *ngIf="cartEmpty">
+  Your Cart is Empty, Start Shopping!!!
+</div>
+<table *ngIf="!cartEmpty" class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Supplier</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartItem of cart">
+        <th scope="row">{{cartItem["item_name"]}}</th>
+        <td>{{cartItem["supplier_name"]}}</td>
+        <td>{{cartItem["quantity"]}}</td>
+        <!-- <button *ngIf="!isAdded" (click)></button> -->
+
+        <td>{{cartItem["quantity"]}} x {{cartItem["price"]|number}} = {{cartItem["quantity"]*cartItem["price"] | number }} ₹</td>
+        <td><button (click)="removeFromCart(cartItem['cust_id'],cartItem['item_id'],cartItem['supplier_id'])" >
+          Remove</button></td>
+
+      </tr>
+
+
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+
+        <td>Total: {{total_price|number}} ₹</td>
+        
+
+        
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        
+      <td><button type="submit" (click)="checkOut()">Checkout</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
